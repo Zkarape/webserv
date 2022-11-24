@@ -29,9 +29,13 @@ class Response: public HTTP
         // void            fill_body();
         char            *get_c_response();
         void            fill_static_content();
-        int             hasExt();
-        void             serve_non_static(std::string);
+        int             hasExt(std::string &);
+        int             is_non_static(std::string);
+        void            serve_non_static(std::string);
         void            open_static(std::string file);
+        int             check_autoindex();
+        void            create_autoindex();
+        void            makeFileList(std::string &);
 };
 
 #endif

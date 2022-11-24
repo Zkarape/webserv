@@ -20,6 +20,7 @@ class Request: public HTTP
         const std::string &get_method();
         const std::string &get_uri();
         const std::string &get_version();
+        const std::string &get_host();
         const std::map<std::string, std::string> &get_headers();
         const std::string &get_body();
 

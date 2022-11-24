@@ -163,6 +163,8 @@ int		Webserv::request_handler(struct kevent *curr_event)
 void	Webserv::response_maker(int event_fd, Request *request)
 {
 	Response response = Response(request, *(configs.begin())); // default server
+    std::cout << "\n\nnon responder overload " << event_fd <<  "\n\n";
+
     std::cout << response.get_c_response() << "\n\n";
     send(event_fd, response.get_c_response(), strlen(response.get_c_response()), 0);
 	free(request);
@@ -198,10 +200,9 @@ void    Webserv::response_maker(int event_fd, Request *request, std::vector<Conf
 	if (conf != configs.end())
 	{
 		response = Response(request, *conf);
-		prop_map::const_iterator it_prop_map = conf->get_map().find("index");
-		std::cout << "INDEX OF CONF: " << *(it_prop_map->second).begin();
+		std::cout << "make \n";
 	}
-    std::cout << response.get_c_response() << "\n\n";
+    // std::cout << response.get_c_response() << "\n\n";
     send(event_fd, response.get_c_response(), strlen(response.get_c_response()), 0);
 }
 

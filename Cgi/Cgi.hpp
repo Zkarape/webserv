@@ -21,6 +21,7 @@ private:
     Request     *request;
     Env         env;
     prop_map    props;
+    std::string reponse;
 
     CGI();
 public:
@@ -36,6 +37,8 @@ public:
     void            handle_get();
 
     void            cgi_handler();
+
+    std::string     get_reponse();
 };
 
 #endif

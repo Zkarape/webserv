@@ -48,6 +48,8 @@ class Config{
         void                    splitndestroy(string loc, string temp1);
         Location                jdi_menya(string s);
         void                    add_error_to_location(string key, string arg, Location &loc_temp);
+        void                    create_root_location();
+        void                    maps_compare(prop_map root, prop_map &child);
         
 
         ~Config();

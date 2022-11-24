@@ -41,7 +41,7 @@ void    Request::parse_first_line(std::string raw_request)
     protocol = this->version.substr(this->version.find_first_of('/') + 1);
     if (this->version.substr(0, this->version.find_first_of('/')) != "HTTP")
         this->status_code = 400; //Bad raw_request
-    if (/*protocol != "1.0" && */protocol != "1.1")
+    if (protocol != "1.0" && protocol != "1.1")
         this->status_code = 403; //Forbidden
     std::cout << this->method << "\n" << this->uri << "\n" << this->version << std::endl;
 }

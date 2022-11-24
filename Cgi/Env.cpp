@@ -10,7 +10,7 @@ Env::Env() {
     this->vars["PATH_INFO"] = ""; // ???
     this->vars["PATH_TRANSLATED"] = ""; // ??
     this->vars["SCRIPT_NAME"] = ""; // cgi path
-    this->vars["REDIRECT_STATUS"] = "200";
+    this->vars["REDIRECT_STATUS"] = "200"; 
     // this->vars["REMOTE_HOST"] = "";
     // this->vars["REMOTE_ADDR"] = "";
     this->vars["AUTH_TYPE"] = ""; // ??
@@ -23,12 +23,10 @@ Env::Env() {
 
 }
 
-
 void Env::set_var(std::string key, std::string val)
 {
     this->vars[key] = val;
 }
-
 char **Env::to_matrix()
 {
     char **envp;
@@ -43,7 +41,7 @@ char **Env::to_matrix()
         envp[i] = new char [temp.size() + 1];
 
         std::strcpy(envp[i], temp.c_str());
-        std::cout << "}}" << envp[i];
+        // std::cout << "}}" << envp[i];
 
         ++i;
         ++iter;
